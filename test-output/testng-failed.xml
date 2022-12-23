@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" parallel="tests"
+	name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+	<parameter name="Browser" value="Firefox" />
+	<test name="Test1">
+		<parameter name="Browser" value="Chrome" />
+		<classes>
+			<class name="lambda.CrossBrowser.testt" />
+		</classes>
+	</test> <!-- Test1 -->
+	<test name="Test2">
+		<parameter name="Browser" value="edge" />
+		<classes>
+			<class name="lambda.CrossBrowser.testt" />
+		</classes>
+	</test> <!-- Test2 -->
+	<test name="Test3">
+		<parameter name="Browser" value="Firefox" />
+		<classes>
+			<class name="lambda.CrossBrowser.testt" />
+		</classes>
+	</test> <!-- Test3 -->
+	<test parallel="tests" name="Test1(failed)">
+		<parameter name="Browser" value="Chrome" />
+		<classes>
+			<class name="lambda.CrossBrowser.testt">
+				<methods>
+					<include name="BrowserLaunch" invocation-numbers="0" />
+				</methods>
+			</class> <!-- lambda.CrossBrowser.testt -->
+		</classes>
+	</test> <!-- Test1(failed) -->
+	<test parallel="tests" name="Test3(failed)">
+		<parameter name="Browser" value="Firefox" />
+		<classes>
+			<class name="lambda.CrossBrowser.testt">
+				<methods>
+					<include name="BrowserLaunch" invocation-numbers="0" />
+				</methods>
+			</class> <!-- lambda.CrossBrowser.testt -->
+		</classes>
+	</test> <!-- Test3(failed) -->
+</suite> <!-- Failed suite [Suite] -->
